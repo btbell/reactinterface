@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       myName: 'Brian',
-      myAppointments: []
+      myAppointment: []
     };
   }
 
@@ -23,29 +23,21 @@ class App extends Component {
           return item;
         })
         this.setState({
-          myAppointments: apts
+          myAppointment: apts
         });
-      });
-     
+      });  
   }
 
   render() {
-
-    const listItems = this.state.myAppointments.map(item => (
-      <div>{item.petName}</div>
-      ));
-
     return (
        <main className="page bg-white" id="petratings">
         <div className="container">
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                { this.state.myName }
-                {listItems}
                 <AddAppointment />
                 <SearchAppointment />
-                <ListAppointment />
+                <ListAppointment appointment={this.state.myAppointment} />
               </div>
             </div>
           </div>
