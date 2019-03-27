@@ -12,7 +12,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      myName: 'Brian',
       myAppointment: [],
       formDisplay: false,
       lastIndex: 0
