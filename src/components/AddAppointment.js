@@ -12,13 +12,31 @@ class AddAppointment extends Component {
       ownerName: '',
       aptDate: '',
       aptTime: '',
-      aptNotes: '',
-    }
+      aptNotes: ''
+    };
     this.handleChange = this.handleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
-  handleChange(e) {
-    const target = e.target
+  handleAdd(e) {
+    e.preventDefault();
+    let tempApt = {
+      petName: this.state.petName,
+      ownerName: this.state.ownerName,
+      aptDate: this.state.aptDate + ' ' + this.state.aptTime,
+      aptNotes: this.state.aptNotes
+    };
+
+    this.props.addAppointment(tempApt);
+
+    this.setState({
+      petName: '',
+      ownerName: '',
+      aptDate: '',
+      aptTime: '',
+      aptNotes: ''
+    });
+    this.props.toggleForm();
   }
 
   handleChange(e) {
