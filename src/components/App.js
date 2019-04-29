@@ -5,7 +5,7 @@ import AddAppointment from './AddAppointment';
 import SearchAppointment from './SearchAppointment';
 import ListAppointment from './ListAppointment';
 
-import {without} from 'lodash';
+import { without } from 'lodash';
 
 class App extends Component {
 
@@ -21,11 +21,19 @@ class App extends Component {
     this.deleteAppointment = this.deleteAppointment.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.addAppointment = this.addAppointment.bind(this);
+    this.changeOrder = this.changeOrder.bind(this);
   }
 
   toggleForm() {
     this.setState({
         formDisplay: !this.state.formDisplay
+    });
+  }
+
+  changeOrder(order, dir) {
+    this.setState({
+        orderBy: order,
+        orderDirection: dir
     });
   }
 
@@ -97,6 +105,7 @@ class App extends Component {
                 <SearchAppointment
                   orderBy = {this.state.orderBy}
                   orderDirection = {this.state.orderDirection}
+                  changeOrder = {this.changeOrder}
                 />
                 <ListAppointment
                   appointment={filteredApts}

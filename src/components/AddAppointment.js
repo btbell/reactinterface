@@ -90,7 +90,7 @@ class AddAppointment extends Component {
                   className="col-md-2 col-form-label text-md-right"
                   htmlFor="ownerName"
                 >
-                  Pet Owner
+                  Owner Name
                 </label>
                 <div className="col-md-10">
                   <input

@@ -27,32 +27,40 @@ class SearchAppointment extends Component {
                 <button className={
                     "sort-by dropdown-item " +
                     (this.props.orderBy === "petName" ? "active": '')
-                } href="#">
+                } onClick={ e => this.props.changeOrder('petName', this.props.orderDirection)}
+                  href="#">
                   Pet Name
                 </button>
                 <button className={
                     "sort-by dropdown-item " +
                     (this.props.orderBy === "aptDate" ? "active": '')
-                } href="#">
+                } onClick={ e => this.props.changeOrder('aptDate', this.props.orderDirection)}
+                  href="#">
                   Date
                 </button>
                 <button className={
                     "sort-by dropdown-item " +
                     (this.props.orderBy === "ownerName" ? "active": '')
-                } href="#">
+                } onClick={ e => this.props.changeOrder('ownerName', this.props.orderDirection)}
+                  href="#">
                   Owner
                 </button>
                 <div role="separator" className="dropdown-divider" />
-                <button className={
+                <button
+                    className={
                     "sort-by dropdown-item " +
-                    (this.props.orderDirection === "asc" ? "active": '')
-                } href="#">
+                    (this.props.orderDirection === "asc" ? "active" : '')
+                }
+                  onClick={ e => this.props.changeOrder(this.props.orderBy, 'asc')}
+                  href="#">
                   Asc
                 </button>
-                <button className={
+                <button
+                    className={
                     "sort-by dropdown-item " +
                     (this.props.orderDirection === "desc" ? "active": '')
-                } href="#">
+                } onClick={ e => this.props.changeOrder(this.props.orderBy, 'desc')}
+                  href="#">
                   Desc
                 </button>
               </div>

@@ -35,10 +35,9 @@ render() {
             </div>
 
             <div className="owner-name">
-              <span className="label-item">Owner: </span>
-              <span>ownerName</span>
+              <span className="owner-name">{item.ownerName}</span>
             </div>
-          	<div className="apt-notes">aptNotes</div>
+          	<div className="apt-notes">{item.aptNotes}</div>
           </div>
         </div>
 			))}
