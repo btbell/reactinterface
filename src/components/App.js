@@ -23,12 +23,17 @@ class App extends Component {
     this.toggleForm = this.toggleForm.bind(this);
     this.addAppointment = this.addAppointment.bind(this);
     this.changeOrder = this.changeOrder.bind(this);
+    this.searchAppointment = this.searchAppointment.bind(this);
   }
 
   toggleForm() {
     this.setState({
         formDisplay: !this.state.formDisplay
     });
+  }
+
+  searchAppointment(query) {
+    this.setState({queryText: query});
   }
 
   changeOrder(order, dir) {
@@ -114,12 +119,13 @@ class App extends Component {
                 <AddAppointment
                   formDisplay={this.state.formDisplay}
                   toggleForm={this.toggleForm}
-                  addAppointment = {this.addAppointment}
+                  addAppointment={this.addAppointment}
                 />
                 <SearchAppointment
-                  orderBy = {this.state.orderBy}
-                  orderDirection = {this.state.orderDirection}
-                  changeOrder = {this.changeOrder}
+                  orderBy={this.state.orderBy}
+                  orderDirection={this.state.orderDirection}
+                  changeOrder={this.changeOrder}
+                  searchAppointment={this.searchAppointment}
                 />
                 <ListAppointment
                   appointment={filteredApts}
